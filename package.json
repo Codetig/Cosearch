@@ -1,0 +1,11 @@
+{
+  "name": "CoSearch",
+  "version": "1.0.0",
+  "description": "Company Research App",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Codetig",
+  "license": "ISC"
+}

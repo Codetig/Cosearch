@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Company Search</title>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+  
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="./main.css">
+</head>
+
+<body>
+  <div id="search-form">
+    <form action="javascript:void(0)" class="form-horizontal">
+      <label for="search-term" class="col-sm-3 text-right">Company Name:</label>
+      <input id="search-term" type="text" class="col-sm-6" placeholder="type in company name" autofocus>
+      <input type="submit" for="search-term" class="col-sm-2" value="Search">
+    </form>
+  </div>
+  <div>
+    <ol class="breadcrumb">
+      <li><a id="see-saved" href="#">Home</a></li>
+    </ol>
+  </div>
+  
+  <div id="saved-co"></div>
+  <div class="show container">
+  <div id="results">
+    <ul>
+      
+    </ul>
+    <a id='full' href="#">See more</a>
+  </div>
+  <div class="row">
+    <div id="companyCB" class="col-sm-8 crunchbase"></div><div class="col-sm-offset-1 col-sm-3 co-focus"><ul></ul></div>
+    <div class="col-sm-11 co-news"><ul></ul></div>
+  </div>
+  </div>
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script type="text/javascript" src="./index.js"></script>
+</body>
+</html>
