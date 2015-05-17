@@ -3,7 +3,6 @@ app = express(),
 methodOverride = require('method-override'),
 bodyParser = require('body-parser');
 var https = require('https');
-var crunchbase = require('crunchbase2');
 
 //middleware
 app.set('view engine', 'ejs');
@@ -33,7 +32,6 @@ var CompanyObj = function(name){
 
 
 var cbKey = process.env.CBKEY;
-crunchbase.init(cbKey);
 console.log(cbKey);
 // console.log(https.request);
 
@@ -124,38 +122,6 @@ app.get('/show/:company', function(req,res){
 	});
 	reqGet.end();
 	reqGet.on('error', function(e){console.log(e);});
-
-	// crunchbase.organization({query: selCompany}, function(err, detail){
- //    if(err){
- //      errmsg = 1;
- //      return errmsg;
- //    }
- //    console.log(detail);
-
- //    var props = detail.data.properties;
- //    var currentCo = new CompanyObj(props.name);
- //    var cats = detail.data.relationships.categories.items;
- //    var news = detail.data.relationships.news.items;
-
- //    	// converting to my object
- //    currentCo.coAlias =  props.also_known_as || "";
- //    currentCo.coDescr = props.description;
- //    currentCo.coFoundedOn = props.founded_on;
- //    currentCo.empNo = props.number_of_employees;
- //    currentCo.coHQCity = detail.data.relationships.headquarters.items[0].city + detail.data.relationships.headquarters.items[0].region;
- //    currentCo.forProfit = props.secondary_role_for_profit;
- //    currentCo.focusAreas = cats.map(function(val){return val.name;});
- //    currentCo.coWebsite = props.homepage_url;
- //    currentCo.coCBSite = 'https://www.crunchbase.com/organization/' + currentCo.coName;
- //    currentCo.coLogoUrl = currentCo.coCBSite +detail.data.relationships.primary_image.items[0].path;
- //    currentCo.coNews.headline = news.map(function(val){return val.title;});
- //    currentCo.coNews.url = news.map(function(val){return val.url;});
- //    currentCo.coNews.author = news.map(function(val){return val.author;});
- //    currentCo.coNews.postDate = news.map(function(val){return val.posted_on;});
-
- //    output = errmsg === 0? currentCo : errmsg;
- //    res.send(JSON.stringify(output));
- //  });
 });
 
 

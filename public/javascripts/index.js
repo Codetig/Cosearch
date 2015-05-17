@@ -17,26 +17,13 @@ $(document).ready(function(){
   }
 
   $('#saved-co ul').on('click','.old-co',function(e){
+    e.preventDefault();
     $('#saved-co').fadeOut(1);
     displayDetails(lsGetMe($(this).text()));
   });
 
-  // var CompanyObj = function(name){
-  //   this.coName = name;
-  //   this.coAlias ='';
-  //   this.coDescr = '';
-  //   this.coFoundedOn = '';
-  //   this.coLogoUrl = '';
-  //   this.empNo = '';
-  //   this.coHQCity = '';
-  //   this.forProfit = '';
-  //   this.focusAreas = [];
-  //   this.coWebsite = '';
-  //   this.coCBSite = '';
-  //   this.competitors = [];
-  //   this.coNews = {headline:[], url:[], author:[], postDate:[]};
-  // };
-  $('#see-saved').on('click',function(){
+  $('#see-saved').on('click',function(e){
+    e.preventDefault();
     location.reload();
   });
 
@@ -57,24 +44,30 @@ $(document).ready(function(){
     $('.co-focus').append('<a target="_blank" href="'+myObj.coCBSite+'">Crunchbase website</a><br>');
 
     //news div
-    $(".co-news ul").before("<h3>News: "+ myObj.coName +"</h3>");
+    $(".co-news ul").before("<h3>News: " + myObj.coName +"</h3>");
     for(var n =0; n < myObj.coNews.headline.length; n++){
-      $(".co-news ul").append('<li><a target="_blank" href="'+myObj.coNews.url+'">' + myObj.coNews.headline[n] + ' </a>by '+myObj.coNews.author[n]+' '+myObj.coNews.postDate[n]+'</li>');
+      $(".co-news ul").append('<li><a target="_blank" href="'+myObj.coNews.url[n]+'">' + myObj.coNews.headline[n] + ' </a>by '+(myObj.coNews.author[n] || '')+' '+myObj.coNews.postDate[n]+'</li>');
     }
   }
 
   $("#search-form").on("submit", function(e){
+    e.preventDefault();
     var company = $("#search-term").val();
     $('#saved-co').hide(); //hide saved companies
     $("#search-term").val("");
     $('h3,h5,p,.show li,hr,#saveCo,.co-focus a').remove(); //need to remove old search
 
+    // console.log(window.location.href + "search/" + company);
     $.ajax({
       dataType: "json",
       type: 'GET',
       url: window.location.href + "search/" + company,
+      error: function(err){
+        console.log("Error:");
+        console.log(err);
+      },
       success: function(info){
-        console.log(info.list);
+        // console.log(info.list);
           
           var collection = info.list;
 

@@ -6,24 +6,24 @@
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
   
-  <!-- Optional theme -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
   <link rel="stylesheet" href="stylesheets/main.css">
 </head>
 
 <body>
-  <div id="search-form">
-    <form action="javascript:void(0)" class="form-horizontal">
-      <label for="search-term" class="col-sm-3 text-right">Company Name:</label>
-      <input id="search-term" type="text" class="col-sm-6" placeholder="type in company name" autofocus>
-      <input type="submit" for="search-term" class="col-sm-2" value="Search">
+  <nav class="navbar navbar-default ">
+  <div id="s-form" class="container-fluid">
+    <form action="javascript:void(0)" class="form-inline text-center" id="search-form">
+      <label for="search-term">Company Name:</label>
+      <input id="search-term" type="text" placeholder="type in company name" class="form-control" autofocus>
+      <input type="submit" for="search-term" value="Search" class="btn btn-primary">
     </form>
   </div>
-  <div>
+  <div id="crumb">
     <ol class="breadcrumb">
       <li><a id="see-saved" href="#">Home</a></li>
     </ol>
   </div>
+  </nav>
   
   <div id="saved-co"></div>
   <div class="show container">
