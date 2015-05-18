@@ -41,8 +41,9 @@ app.get('/', function(req,res){
 });
 
 app.get('/search/:firm', function(req,res){
-	console.log("starting!!!");
-	var company = req.params.firm; 
+	// console.log("starting!!!");
+	var company = req.params.firm.replace(/ /g, '+'); 
+	console.log(company);
 	var collection = [];
 
 	var options = {
@@ -72,7 +73,7 @@ app.get('/search/:firm', function(req,res){
 });
 
 app.get('/show/:company', function(req,res){
-	var selCompany = req.params.company,
+	var selCompany = req.params.company.replace(/ /g, '+'),
 	errmsg = 0,
 	output;
 
@@ -90,8 +91,10 @@ app.get('/show/:company', function(req,res){
 		});
 
 		rep.on('end', function(){
-			if(!resp){res.send("1"); return;}
-			var detail = JSON.parse(resp);
+			var detail = JSON.parse(resp); //parsing the result
+			//catching when no response was sent
+			if(detail.data.response === false){res.send("1"); return;}
+			//processing response when there is one
 			var props = detail.data.properties;
 	    var currentCo = new CompanyObj(props.name);
 	    var cats = detail.data.relationships.categories.items;

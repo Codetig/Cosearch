@@ -1,6 +1,16 @@
 body {
   width: 95%;
+  height: 100%;
   margin: 0 auto;
+  background-image: url("/images/underground.png");
+  background-size: cover;
+
+}
+
+.bg-white {
+  padding: 1.5em;
+  border-radius: 0.5em;
+  background-color: rgba(255, 255, 255, 0.8);
 }
 
 #s-form {

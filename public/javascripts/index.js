@@ -4,9 +4,10 @@ $(document).ready(function(){
   if(window.localStorage.length === 0){
    $("#saved-co").hide();
   } else {
+    $("#saved-co").addClass('bg-white');
     $("#saved-co").append("<h3>Favorite Companies</h3><ul></ul>");
     for(var s in window.localStorage){
-      if(lsGetMe(s).empNo >= 0){
+      if(lsGetMe(s) && lsGetMe(s).empNo >= 0){
         $('#saved-co ul').append('<li><a class="old-co">'+ s +'</a></li>');
       }
     }
@@ -18,6 +19,7 @@ $(document).ready(function(){
 
   $('#saved-co ul').on('click','.old-co',function(e){
     e.preventDefault();
+    $("#saved-co").removeClass('bg-white');
     $('#saved-co').fadeOut(1);
     displayDetails(lsGetMe($(this).text()));
   });
@@ -28,6 +30,8 @@ $(document).ready(function(){
   });
 
   function displayDetails(myObj){
+    //Add background
+    $(".show").addClass('bg-white');
     
     //general description div   
     $('#companyCB').append('<h3>' + myObj.coName +'<small> ' + myObj.coAlias + '</small></h3><h5>Founded on: <small>'+myObj.coFoundedOn+'</small></h5>');
@@ -54,8 +58,11 @@ $(document).ready(function(){
     e.preventDefault();
     var company = $("#search-term").val();
     $('#saved-co').hide(); //hide saved companies
-    $("#search-term").val("");
+    $(".show").addClass('bg-white');
+    $("#search-ter").val("");
     $('h3,h5,p,.show li,hr,#saveCo,.co-focus a').remove(); //need to remove old search
+
+    //good point to see if the company is in local storage
 
     // console.log(window.location.href + "search/" + company);
     $.ajax({
@@ -105,7 +112,7 @@ $(document).ready(function(){
           // console.log(currentCo);
           if(currentCo === "1" || !currentCo.coName){
               $('#results').fadeIn(100); 
-              var errmsg = 'No information on "'+ selCompany +'" at the moment. \n\n Choose another list item or visit their <a target="_blank" href="https://www.crunchbase.com/organization/' + selCompany + '">Crunchbase website</a>';
+              var errmsg = 'No information on "'+ selCompany +'" at the moment. \n\n Choose another list item or visit their LinkedIn Page through <a target="_blank" href="https://www.google.com/#q=' + selCompany + '+LinkedIn">here</a>.';
               $('#results ul').before('<p>'+errmsg+'</p>');
               return;
           }
