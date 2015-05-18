@@ -129,8 +129,9 @@ app.get('/show/:company', function(req,res){
 
 
 //starting server
-app.listen(3001, function(){
-	console.log('Server has started!!! at port 3001');
+var port = process.env.PORT || 3001;
+app.listen(port, function(){
+	console.log('Server has started!!! at port ' + port);
 });
 
 	
