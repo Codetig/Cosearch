@@ -4,6 +4,7 @@ body {
   margin: 0 auto;
   background-image: url("/images/underground.png");
   background-size: cover;
+  background-repeat: no-repeat;
 
 }
 
