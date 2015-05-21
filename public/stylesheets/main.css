@@ -1,11 +1,25 @@
-body {
-  width: 95%;
-  height: 100%;
-  margin: 0 auto;
-  background-image: url("/images/underground_f.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
+@media only screen and (min-width: 401px) {
+  body {
+    width: 95%;
+    height: 100%;
+    margin: 0 auto;
+    background-image: url("/images/underground_f.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-size: 1.5em;
+  }
+}
 
+@media only screen and (max-width: 400px) {
+  body {
+    width: 95%;
+    height: 100%;
+    margin: 0 auto;
+    background-image: url("/images/underground_m.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-size: 2em;
+  }
 }
 
 .bg-white {
@@ -32,9 +46,5 @@ body {
   background-color: white;
 }
 
-@media only screen and (max-width: 600) {
-  body {
-    background-image: url("/images/underground_m.jpg");
-  }
-}
+
 
