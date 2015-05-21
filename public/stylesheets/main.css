@@ -8,6 +8,12 @@
     background-repeat: no-repeat;
     font-size: 1.5em;
   }
+
+  #search-term {
+    margin-bottom: 4px;
+    width: 60%;
+    font-size: 1.25em;
+  }
 }
 
 @media only screen and (max-width: 400px) {
@@ -19,6 +25,13 @@
     background-size: cover;
     background-repeat: no-repeat;
     font-size: 2em;
+  }
+
+  #search-term {
+    display: block;
+    width: 80%;
+    margin-bottom: 4px;
+    font-size: 1em;
   }
 }
 
@@ -36,10 +49,6 @@
 
 #s-form label {
   font-size: 1.3em;
-}
-
-#search-term {
-  width: 50%;
 }
 
 #crumb ol {

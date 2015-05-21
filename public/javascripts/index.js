@@ -59,7 +59,7 @@ $(document).ready(function(){
     var company = $("#search-term").val();
     $('#saved-co').hide(); //hide saved companies
     $(".show").addClass('bg-white');
-    $("#search-ter").val("");
+    $("#search-term").val("");
     $('h3,h5,p,.show li,hr,#saveCo,.co-focus a').remove(); //need to remove old search
 
     //good point to see if the company is in local storage
